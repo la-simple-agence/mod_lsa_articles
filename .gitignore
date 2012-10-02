@@ -2,7 +2,8 @@
 ## FAB
 #################
 
-mod_lsa_articles-update.xml
+.gitignore
+.gitattributes
 
 #################
 ## Eclipse
