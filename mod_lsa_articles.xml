@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+	<name>mod_lsa_articles</name>
+	<author>La simple agence - Fabien CANU</author>
+	<creationDate>Juin 2012</creationDate>
+	<copyright>Copyright (C) 2012 - La simple agence</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>fabien.canu@gmail.com</authorEmail>
+	<authorUrl>http://www.lasimpleagence.com</authorUrl>
+	<version>2.5.0</version>
+	<description>Modules d'affichage d'articles par catérogies. Choix multiples de template d'affichage</description>
+	<files>
+		<filename module="mod_lsa_articles">mod_lsa_articles.php</filename>
+		<folder>tmpl</folder>
+		<filename>helper.php</filename>
+		<filename>index.html</filename>
+		<filename>mod_lsa_articles.xml</filename>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="catid"
+					type="category"
+					extension="com_content"
+					multiple="true"
+					default=""
+					size="10"
+					label="JCATEGORY"
+					description="" >
+					<option value="">JOPTION_ALL_CATEGORIES</option>
+				</field>
+
+				<field
+					name="image"
+					type="radio"
+					default="0"
+					label="Label image"
+					description="">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="item_title"
+					type="radio"
+					default="0"
+					label="Afficher le titre"
+					description="">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="link_titles"
+					type="list"
+					label="Lien sur les titres"
+					description="">
+					<option
+						value="">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">JNO</option>
+					<option
+						value="1">JYES</option>
+				</field>
+
+				<field
+					name="item_heading"
+					type="list"
+					default="h4"
+					label="Titre"
+					description="">
+					<option
+						value="h1">JH1</option>
+					<option
+						value="h2">JH2</option>
+					<option
+						value="h3">JH3</option>
+					<option
+						value="h4">JH4</option>
+					<option
+						value="h5">JH5</option>
+				</field>
+
+				<field
+					name="showLastSeparator"
+					type="radio"
+					default="1"
+					label="Séparateur"
+					description="">
+					<option
+						value="1">JYES</option>
+					<option
+						value="0">JNO</option>
+				</field>
+
+				<field
+					name="readmore"
+					type="radio"
+					default="0"
+					label="Afficher 'lire la suite'"
+					description="">
+					<option
+						value="0">JHIDE</option>
+					<option
+						value="1">JSHOW</option>
+				</field>
+
+				<field
+					name="count"
+					type="text"
+					default="5"
+					label="Nombre d'articles"
+					description="" />
+
+				<field
+					name="ordering"
+					type="list"
+					default="a.publish_up"
+					label="Ordre"
+					description="">
+					<option
+						value="a.publish_up">par date de publication</option>
+					<option
+						value="a.created">par date de création</option>
+					<option
+						value="a.ordering">par ordre</option>
+					<option
+						value="rand()">aléatoire</option>
+				</field>
+
+			</fieldset>
+
+			<fieldset
+				name="advanced">
+
+				<field
+					name="layout"
+					type="modulelayout"
+					label="JFIELD_ALT_LAYOUT_LABEL"
+					description="JFIELD_ALT_MODULE_LAYOUT_DESC" />
+
+				<field
+					name="id-slider"
+					type="text"
+					label="Id slider"
+					description="Id du slider, utile quand il y en a plusieurs" />
+
+				<field
+					name="featured"
+					type="list"
+					default=""
+					label="Articles en vedettes"
+					description="Afficher uniquement les articles en vedettes">
+					<option
+						value="only">Oui</option>
+					<option
+						value="show">Indifférent</option>
+				</field>
+
+
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+				<field
+					name="cache"
+					type="list"
+					default="1"
+					label="COM_MODULES_FIELD_CACHING_LABEL"
+					description="COM_MODULES_FIELD_CACHING_DESC">
+					<option
+						value="1">JGLOBAL_USE_GLOBAL</option>
+					<option
+						value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+
+				<field
+					name="cache_time"
+					type="text"
+					default="900"
+					label="COM_MODULES_FIELD_CACHE_TIME_LABEL"
+					description="COM_MODULES_FIELD_CACHE_TIME_DESC" />
+
+				<field
+					name="cachemode"
+					type="hidden"
+					default="itemid">
+					<option
+						value="itemid"></option>
+				</field>
+
+			</fieldset>
+		</fields>
+		<fields name="urls">
+			<field
+				name="urla"
+				type="url"
+				validate="url"
+				label="COM_CONTENT_FIELD_URLA_LABEL"
+				description="COM_CONTENT_FIELD_URL_DESC" />
+			<field name="urlatext"
+				type="text"
+				label="COM_CONTENT_FIELD_URLA_LINK_TEXT_LABEL"
+				description="COM_CONTENT_FIELD_URL_LINK_TEXT_DESC"
+				class="inputbox" 
+				size="20" />
+			<field
+				name="targeta"
+				type="hidden"
+			 />
+		</fields>
+	</config>
+</extension>
